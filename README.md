@@ -71,19 +71,39 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include "stdbool.h"
+bool buttonstatus;
+ while (1)
+  {
+	 buttonstatus= HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+	 if(buttonstatus==0)
+	 {
+		 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+HAL_Delay(500);
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+HAL_Delay(500);
+	 }
+	 else
+	 {
+		 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
 
+	 }
+      /* USER CODE END WHILE */
 
-
-
+     /* USER CODE BEGIN 3 */
+  }
+    /* USER CODE END 3 */
+}
+```
 ## Output screen shots of proteus  :
+![image](https://github.com/Brindha77/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/118889143/f2eb13f6-197d-4b30-8744-8b2aabdfcbe3)
 
-
-
+![image](https://github.com/Brindha77/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/118889143/6cfbd352-c71c-4082-8342-f8619bbe7b20)
 
 ## Proteus layout(Add pdf screen shot of circuit here)
- 
- 
- 
+![image](https://github.com/Brindha77/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/assets/118889143/39505723-e2bb-4353-9e1d-0b2369dbf1c0)
  
 ## Result :
 Interfacing a digital output and digital input  with ARM microcontroller are simulated in proteus and the results are verified.
